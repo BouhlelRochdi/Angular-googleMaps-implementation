@@ -1,0 +1,22 @@
+<p>marker-map works!</p>
+<google-map height="600px"
+            width="1024px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="addMarker($event)">
+              <map-marker 
+              [position]="destinationPosition"
+              [options]="markerOptions"></map-marker>
+              <map-marker 
+              [position]="markerPositions"
+              [options]="markerOptions"></map-marker>
+              <map-marker 
+              [position]="startPosition"
+              [options]="markerOptions"></map-marker>
+
+              <map-directions-renderer *ngIf="(directionsResults$ | async) as directionsResults"
+                           [directions]="directionsResults"></map-directions-renderer>
+</google-map>
+
+<button (click)="drive()" >Drive</button>
+<button (click)="setPointsMap()" >setPointsMap</button>
